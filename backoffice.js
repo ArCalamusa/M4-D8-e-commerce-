@@ -87,6 +87,7 @@ const createTable = (products, tbody) => {
         editButton.type = 'button';
         editButton.setAttribute('data-bs-toggle', 'modal');
         editButton.setAttribute('data-bs-target', '#editModal');
+        editButton.classList.add('btn', 'btn-outline-success');
         editButton.addEventListener('click', () => {
             sendToDialog(item);
         });
@@ -94,6 +95,8 @@ const createTable = (products, tbody) => {
         const deleteCol = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
+        deleteButton.type = 'button';
+        deleteButton.classList.add('btn', 'btn-outline-danger');
         deleteButton.addEventListener('click', async () => {
             if (confirm("Vuoi eliminare l'elemento selezionato?")) {
                 await deleteProduct(item._id);
